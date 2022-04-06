@@ -1,0 +1,27 @@
+:root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+html {
+  background-color: lightgrey;
+}
+button {
+  cursor: pointer;
+  background-color: grey;
+  color: white;
+  box-shadow: 0.1rem 0.2rem black;
+}
+#app {
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 5%;
+  border: 0.1rem solid black;
+}
+.done {
+  text-decoration: line-through;
+}
+.open {
+  background-color: white;
+}

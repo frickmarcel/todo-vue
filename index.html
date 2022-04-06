@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkpoint</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <input
+        type="text"
+        placeholder="Abi's Augenbrauen zupfen"
+        v-model="newTodo"
+        @keypress.enter="addTodo"
+      />
+
+      <button @click="addTodo">Add</button>
+      <h2>Filter & Options</h2>
+      <div>
+        <input
+          type="radio"
+          id="all"
+          name="filter"
+          value="all"
+          v-model="filter"
+        />
+        <label for="all">all</label>
+        <input
+          type="radio"
+          id="done"
+          name="filter"
+          value="done"
+          v-model="filter"
+        />
+        <label for="done">done</label>
+        <input
+          type="radio"
+          id="open"
+          name="filter"
+          value="open"
+          v-model="filter"
+        />
+        <label for="open">open</label>
+        <button @click="deleteFinishedTask">Remove Done Todos</button>
+      </div>
+      <ul>
+        <h2>Your Todos</h2>
+        <li
+          v-for="todo in filteredTodos"
+          v-bind:class="{'done': todo.checked,'open': todo.checked === false}"
+        >
+          <input type="checkbox" v-model="todo.checked" />{{ todo.description }}
+        </li>
+      </ul>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="script.js"></script>
+</html>
